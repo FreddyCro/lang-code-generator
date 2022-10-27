@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [selectedLanguagesList, setSelectedLanguagesList] = useState([]);
+  const [prefix, setPrefix] = useState('');
+  const [postfix, setPostfix] = useState('');
   const [divider, setDivider] = useState(',');
   const americaList = ['en-ca', 'en-us', 'es-mx', 'en-br'];
   const asiaList = [
@@ -48,6 +50,12 @@ const App = () => {
     return { ...accumulator, [value]: false };
   }, {});
 
+  const generateLangCode = () => {
+    return selectedLanguagesList
+      .map((e) => `${prefix}${e}${postfix}`)
+      .join(divider);
+  };
+
   return (
     <div className='App'>
       <div className='container'>
@@ -56,6 +64,20 @@ const App = () => {
           type='text'
           value={divider}
           onChange={(e) => setDivider(e.target.value)}
+        />
+
+        <p>Prefix:</p>
+        <input
+          type='text'
+          value={prefix}
+          onChange={(e) => setPrefix(e.target.value)}
+        />
+
+        <p>Postfix:</p>
+        <input
+          type='text'
+          value={postfix}
+          onChange={(e) => setPostfix(e.target.value)}
         />
 
         <Selecto
@@ -119,7 +141,7 @@ const App = () => {
         </div>
         <div className='empty elements'></div>
 
-        <p>{selectedLanguagesList.join(divider)}</p>
+        <p>{generateLangCode()}</p>
       </div>
     </div>
   );
