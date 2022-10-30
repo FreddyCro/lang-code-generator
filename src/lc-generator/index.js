@@ -1,47 +1,15 @@
-import './App.css';
-import styles from './App.module.css';
+import styles from './index.module.css';
 import Selecto from 'react-selecto';
 import React, { useState } from 'react';
+import data from './data.json';
 
 const App = () => {
-  // data
-  const americaList = ['en-ca', 'en-us', 'es-mx', 'en-br'];
-  const asiaList = [
-    'zh-tw',
-    'zh-cn',
-    'zh-hk',
-    'ja-jp',
-    'ko-kr',
-    'th-th',
-    'en-ae',
-    'en-au',
-    'en-id',
-    'en-in',
-    'en-my',
-    'en-nz',
-    'en-ph',
-    'en-sg',
-    'en-vn',
+  const allList = [
+    ...data.americaList,
+    ...data.asiaList,
+    ...data.europeList,
+    ...data.regionList,
   ];
-  const europeList = [
-    'fr-fr',
-    'cs-cz',
-    'da-dk',
-    'de-de',
-    'hu-hu',
-    'it-it',
-    'nl-nl',
-    'pl-pl',
-    'ru-ru',
-    'sv-se',
-    'tr-tr',
-    'en-eu',
-    'en-ro',
-    'en-uk',
-    'es-es',
-  ];
-  const regionList = ['en-global', 'en-af', 'en-me'];
-  const allList = [...americaList, ...asiaList, ...europeList, ...regionList];
 
   let selectedLanguages = allList.reduce((accumulator, value) => {
     return { ...accumulator, [value]: false };
@@ -61,9 +29,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <div className='lg-container'>
-        <div className='lg-controller-container'>
-          <div className='lg-input-container'>
+      <div className={styles.lcContainer}>
+        <div className={styles.lcController}>
+          <div className={styles.lcInputContainer}>
             <p className={styles.test}>Divider:</p>
             <input
               type='text'
@@ -86,12 +54,14 @@ const App = () => {
             />
           </div>
 
-          <div className='lg-output-container'>
+          <div className={styles.lcOutput}>
             <p>{generateLangCode()}</p>
+
+            <button>Copy</button>
           </div>
         </div>
 
-        <div className='lg-cube-container'>
+        <div className={styles.lcCubeContainer}>
           <Selecto
             dragContainer={'.elements'}
             selectableTargets={['.selecto-area .cube']}
@@ -124,28 +94,28 @@ const App = () => {
 
           <div className='elements selecto-area' id='selecto1'>
             <p>America</p>
-            {americaList.map((i) => (
+            {data.americaList.map((i) => (
               <div className='cube' key={i} data-lang={i}>
                 {i}
               </div>
             ))}
 
             <p>Asia</p>
-            {asiaList.map((i) => (
+            {data.asiaList.map((i) => (
               <div className='cube' key={i} data-lang={i}>
                 {i}
               </div>
             ))}
 
             <p>Europe</p>
-            {europeList.map((i) => (
+            {data.europeList.map((i) => (
               <div className='cube' key={i} data-lang={i}>
                 {i}
               </div>
             ))}
 
             <p>Region</p>
-            {regionList.map((i) => (
+            {data.regionList.map((i) => (
               <div className='cube' key={i} data-lang={i}>
                 {i}
               </div>

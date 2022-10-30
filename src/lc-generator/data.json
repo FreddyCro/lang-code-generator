@@ -1,0 +1,38 @@
+{
+  "americaList": ["en-ca", "en-us", "es-mx", "en-br"],
+  "asiaList": [
+    "zh-tw",
+    "zh-cn",
+    "zh-hk",
+    "ja-jp",
+    "ko-kr",
+    "th-th",
+    "en-ae",
+    "en-au",
+    "en-id",
+    "en-in",
+    "en-my",
+    "en-nz",
+    "en-ph",
+    "en-sg",
+    "en-vn"
+  ],
+  "europeList": [
+    "fr-fr",
+    "cs-cz",
+    "da-dk",
+    "de-de",
+    "hu-hu",
+    "it-it",
+    "nl-nl",
+    "pl-pl",
+    "ru-ru",
+    "sv-se",
+    "tr-tr",
+    "en-eu",
+    "en-ro",
+    "en-uk",
+    "es-es"
+  ],
+  "regionList": ["en-global", "en-af", "en-me"]
+}
