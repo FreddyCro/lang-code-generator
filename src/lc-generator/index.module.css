@@ -5,11 +5,12 @@
 }
 
 .controlPanel {
-  padding: 8px;
+  padding: 8px 0;
 }
 
 .lcContainer {
   max-width: 800px;
+  width: 800px;
   display: flex;
   margin: 0 auto;
 }
@@ -24,16 +25,59 @@
 
 .lcInputContainer {
   composes: controlPanel;
+}
 
+.lcInputWrapper {
+  width: 100%;
+}
+
+.lcInputTitle {
+}
+
+.lcInput {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lcCopy {
+  margin-bottom: 8px;
 }
 
 .lcOutput {
   composes: controlPanel;
 
   height: 100%;
-  background-color: lightblue;
+  padding: 8px;
+  background-color: lightcyan;
 }
 
 .lcCubeContainer {
   composes: panel;
+}
+
+:global(.cube) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  background: #eee;
+  white-space: nowrap;
+  --color: #4af;
+}
+
+:global(.elements) {
+  border: 2px solid #eee;
+}
+
+:global(.selecto-area) {
+  padding: 20px;
+}
+
+:global(.selecto-area .selected) {
+  color: #fff;
+  background: var(--color);
 }

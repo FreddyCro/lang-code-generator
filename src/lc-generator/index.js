@@ -2,6 +2,7 @@ import styles from './index.module.css';
 import Selecto from 'react-selecto';
 import React, { useState } from 'react';
 import data from './data.json';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const App = () => {
   const allList = [
@@ -27,38 +28,51 @@ const App = () => {
       .join(divider);
   };
 
+  const InputPanel = ({ classname, title, value, setValue }) => {
+    return (
+      <div className={styles.lcInputWrapper}>
+        <div className={styles.lcInputTitle}>{title}</div>
+        <input
+          className={styles.lcInput}
+          type='text'
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </div>
+    );
+  };
+
   return (
     <div className='App'>
       <div className={styles.lcContainer}>
         <div className={styles.lcController}>
           <div className={styles.lcInputContainer}>
-            <p className={styles.test}>Divider:</p>
-            <input
-              type='text'
-              value={divider}
-              onChange={(e) => setDivider(e.target.value)}
-            />
+            {InputPanel({
+              title: 'Divider:',
+              value: divider,
+              setValue: setDivider,
+            })}
 
-            <p>Prefix:</p>
-            <input
-              type='text'
-              value={prefix}
-              onChange={(e) => setPrefix(e.target.value)}
-            />
+            {InputPanel({
+              title: 'Prefix:',
+              value: prefix,
+              setValue: setPrefix,
+            })}
 
-            <p>Postfix:</p>
-            <input
-              type='text'
-              value={postfix}
-              onChange={(e) => setPostfix(e.target.value)}
-            />
+            {InputPanel({
+              title: 'Postfix:',
+              value: postfix,
+              setValue: setPostfix,
+            })}
           </div>
 
-          <div className={styles.lcOutput}>
-            <p>{generateLangCode()}</p>
-
-            <button>Copy</button>
+          <div className={styles.lcCopy}>
+            <CopyToClipboard text={generateLangCode()}>
+              <button>Copy to clipboard</button>
+            </CopyToClipboard>
           </div>
+
+          <div className={styles.lcOutput}>{generateLangCode()}</div>
         </div>
 
         <div className={styles.lcCubeContainer}>
