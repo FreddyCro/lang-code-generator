@@ -120,33 +120,38 @@ const App = () => {
           ></Selecto>
 
           <div className='elements selecto-area' id='selecto1'>
-            <p>America</p>
-            {data.americaList.map((i) => (
-              <div className='cube' key={i} data-lang={i}>
-                {i}
-              </div>
-            ))}
-
-            <p>Asia</p>
-            {data.asiaList.map((i) => (
-              <div className='cube' key={i} data-lang={i}>
-                {i}
-              </div>
-            ))}
-
-            <p>Europe</p>
-            {data.europeList.map((i) => (
-              <div className='cube' key={i} data-lang={i}>
-                {i}
-              </div>
-            ))}
-
-            <p>Region</p>
-            {data.regionList.map((i) => (
-              <div className='cube' key={i} data-lang={i}>
-                {i}
-              </div>
-            ))}
+            <div className='cube-wrapper'>
+              <p>America</p>
+              {data.americaList.map((i) => (
+                <div className='cube' key={i} data-lang={i}>
+                  {i}
+                </div>
+              ))}
+            </div>
+            <div className='cube-wrapper'>
+              <p>Asia</p>
+              {data.asiaList.map((i) => (
+                <div className='cube' key={i} data-lang={i}>
+                  {i}
+                </div>
+              ))}
+            </div>
+            <div className='cube-wrapper'>
+              <p>Europe</p>
+              {data.europeList.map((i) => (
+                <div className='cube' key={i} data-lang={i}>
+                  {i}
+                </div>
+              ))}
+            </div>
+            <div className='cube-wrapper'>
+              <p>Region</p>
+              {data.regionList.map((i) => (
+                <div className='cube' key={i} data-lang={i}>
+                  {i}
+                </div>
+              ))}
+            </div>
           </div>
           <div className='empty elements'></div>
         </div>

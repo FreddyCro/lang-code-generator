@@ -71,6 +71,10 @@
   composes: panel;
 }
 
+:global(.cube-wrapper) {
+  margin-bottom: 20px;
+}
+
 :global(.cube) {
   display: inline-flex;
   justify-content: center;
