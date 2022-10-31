@@ -66,10 +66,16 @@ const App = () => {
             })}
           </div>
 
-          <div className={styles.lcCopy}>
+          <div className={styles.lcCopyContainer}>
             <CopyToClipboard text={generateLangCode()}>
-              <button>Copy to clipboard</button>
+              <button className={styles.lcCopy}>Copy to clipboard</button>
             </CopyToClipboard>
+
+            <div className={styles.lcHint}>(Press [shift] to select continuously.)</div>
+
+            {/* <button className={styles.lcClear} onClick={handleClearSelected}>
+              Clear
+            </button> */}
           </div>
 
           <div className={styles.lcOutput}>{generateLangCode()}</div>
@@ -79,10 +85,10 @@ const App = () => {
           <Selecto
             dragContainer={'.elements'}
             selectableTargets={['.selecto-area .cube']}
-            hitRate={50}
+            hitRate={20}
             selectByClick={true}
             selectFromInside={true}
-            continueSelect={true}
+            toggleContinueSelect={['shift']}
             ratio={0}
             onSelect={(e) => {
               e.selected.forEach((el) => {

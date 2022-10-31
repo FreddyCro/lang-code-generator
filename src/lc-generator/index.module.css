@@ -9,8 +9,8 @@
 }
 
 .lcContainer {
-  max-width: 800px;
-  width: 800px;
+  max-width: 880px;
+  width: 880px;
   display: flex;
   margin: 0 auto;
 }
@@ -18,7 +18,7 @@
 .lcController {
   composes: panel;
 
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-direction: column;
 }
@@ -39,8 +39,24 @@
   box-sizing: border-box;
 }
 
-.lcCopy {
+.lcCopyContainer {
+  margin-top: 40px;
   margin-bottom: 8px;
+}
+
+.lcClear {
+  cursor: pointer;
+}
+
+.lcCopy {
+  color: white;
+  background-color: lightskyblue;
+  cursor: pointer;
+}
+
+.lcHint {
+  margin-top: 8px;
+  font-size: 12px;
 }
 
 .lcOutput {
@@ -61,12 +77,19 @@
   align-items: center;
   overflow: hidden;
   border-radius: 5px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 4px;
   background: #eee;
   white-space: nowrap;
+  cursor: pointer;
+  transition: 0.15s;
+  transform-origin: center;
   --color: #4af;
+}
+
+:global(.cube:hover) {
+  transform: scale(1.05);
 }
 
 :global(.elements) {
