@@ -1,0 +1,110 @@
+.panel {
+  padding: 16px;
+  border: solid 1px black;
+  box-sizing: border-box;
+}
+
+.controlPanel {
+  padding: 8px 0;
+}
+
+.lcContainer {
+  max-width: 880px;
+  width: 880px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.lcController {
+  composes: panel;
+
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lcInputContainer {
+  composes: controlPanel;
+}
+
+.lcInputWrapper {
+  width: 100%;
+}
+
+.lcInputTitle {
+}
+
+.lcInput {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lcCopyContainer {
+  margin-top: 40px;
+  margin-bottom: 8px;
+}
+
+.lcClear {
+  cursor: pointer;
+}
+
+.lcCopy {
+  color: white;
+  background-color: lightskyblue;
+  cursor: pointer;
+}
+
+.lcHint {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.lcOutput {
+  composes: controlPanel;
+
+  height: 100%;
+  padding: 8px;
+  background-color: lightcyan;
+}
+
+.lcCubeContainer {
+  composes: panel;
+}
+
+:global(.cube-wrapper) {
+  margin-bottom: 20px;
+}
+
+:global(.cube) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  background: #eee;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.15s;
+  transform-origin: center;
+  --color: #4af;
+}
+
+:global(.cube:hover) {
+  transform: scale(1.05);
+}
+
+:global(.elements) {
+  border: 2px solid #eee;
+}
+
+:global(.selecto-area) {
+  padding: 20px;
+}
+
+:global(.selecto-area .selected) {
+  color: #fff;
+  background: var(--color);
+}
