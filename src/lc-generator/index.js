@@ -32,7 +32,7 @@ const App = () => {
     return (
       <div className={styles.lcInputWrapper}>
         <div className={styles.lcInputTitle}>{title}</div>
-        <input
+        <textarea
           className={styles.lcInput}
           type='text'
           value={value}
@@ -67,18 +67,25 @@ const App = () => {
           </div>
 
           <div className={styles.lcCopyContainer}>
-            <CopyToClipboard text={generateLangCode()}>
+            <CopyToClipboard text={generateLangCode()} format='text/html'>
               <button className={styles.lcCopy}>Copy to clipboard</button>
             </CopyToClipboard>
 
-            <div className={styles.lcHint}>(Press [shift] to select continuously.)</div>
+            <div className={styles.lcHint}>
+              (Press [shift] to select continuously.)
+            </div>
 
             {/* <button className={styles.lcClear} onClick={handleClearSelected}>
               Clear
             </button> */}
           </div>
 
-          <div className={styles.lcOutput}>{generateLangCode()}</div>
+          <textarea
+            id='output'
+            className={styles.lcOutput}
+            value={generateLangCode()}
+            readOnly
+          ></textarea>
         </div>
 
         <div className={styles.lcCubeContainer}>
